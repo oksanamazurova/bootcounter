@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BootCounterApp</string>
+    <string name="default_notification_channel_name">General</string>
+</resources>
