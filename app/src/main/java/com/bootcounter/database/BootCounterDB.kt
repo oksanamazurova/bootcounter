@@ -1,11 +1,13 @@
 package com.bootcounter.database
 
-import androidx.room.DatabaseConfiguration
+import androidx.room.Database
 import androidx.room.InvalidationTracker
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteOpenHelper
+import com.bootcounter.database.dao.BootsDao
+import com.bootcounter.database.entities.BootEvent
 
-class BootCounterDB : RoomDatabase() {
+@Database(entities = [BootEvent::class], version = 1)
+abstract class BootCounterDB : RoomDatabase() {
 
     interface Tables {
         companion object {
@@ -13,9 +15,7 @@ class BootCounterDB : RoomDatabase() {
         }
     }
 
-    override fun createOpenHelper(config: DatabaseConfiguration?): SupportSQLiteOpenHelper {
-        TODO("Not yet implemented")
-    }
+    abstract fun bootsDao(): BootsDao?
 
     override fun createInvalidationTracker(): InvalidationTracker {
         TODO("Not yet implemented")
